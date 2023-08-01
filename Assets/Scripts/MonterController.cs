@@ -47,7 +47,7 @@ public class MonterController : MonoBehaviour
                 curIndex++;
                 nextPoint = wayPoint.gameObject.transform.GetChild(curIndex);
 
-                checkDir(wayPoint.gameObject.transform.GetChild(curIndex - 1), nextPoint);
+                CheckDir(wayPoint.gameObject.transform.GetChild(curIndex - 1), nextPoint);
 
             }
             else
@@ -58,7 +58,7 @@ public class MonterController : MonoBehaviour
 
     }
 
-    private void checkDir(Transform p1, Transform p2)
+    private void CheckDir(Transform p1, Transform p2)
     {
         if (p1.position.y == p2.position.y) 
         {
@@ -85,9 +85,7 @@ public class MonterController : MonoBehaviour
 
             }
         }
-        Debug.Log(animDir);
         animator.SetInteger("dir", animDir);
-
     }
 
 }

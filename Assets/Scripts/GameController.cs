@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+
         btn20.onClick.AddListener(() => Spawn(20));
         btn50.onClick.AddListener(() => Spawn(50));
         btn100.onClick.AddListener(() => Spawn(100));
@@ -38,7 +40,7 @@ public class GameController : MonoBehaviour
     {
         deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
         float fps = 1.0f / deltaTime;
-        fpsText.text = Mathf.Ceil(fps).ToString();
+        fpsText.text = Mathf.Ceil(fps).ToString() + " FPS";
         yield return new WaitForSeconds(1f);
         StartCoroutine(CountFps());
     }
@@ -46,7 +48,7 @@ public class GameController : MonoBehaviour
     IEnumerator WaitSpawn(float time)
     {
         yield return new WaitForSeconds(time);
-        int ran = Random.Range(0, 5);
+        int ran = Random.Range(0, 8);
         Instantiate(prefab[ran], transform.position, Quaternion.identity);
 
     }
